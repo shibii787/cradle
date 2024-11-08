@@ -1,5 +1,6 @@
 import 'package:cradle/common/onboarding.dart';
 import 'package:cradle/screens/home_screen.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 
@@ -80,11 +81,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   InkWell(
                     onTap: () {
                       if (currentIndex == 1) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
-                            ));
+                        Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context) => const HomeScreen(),));
                       } else {
                         controller.nextPage(
                             duration: const Duration(milliseconds: 200),

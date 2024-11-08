@@ -9,12 +9,12 @@ class NewsApi{
 
   Future <NewsModel> getNewsData(String news) async{
     String apiUrl = "$baseUrl&q$news";
-    print("API url = $apiUrl");
+    //print("API url = $apiUrl");
 
     try{
       final response = await http.get(Uri.parse(apiUrl));
-      print('status : ${response.statusCode}');
-      print('body : ${response.body}');
+      //print('status : ${response.statusCode}');
+      //print('body : ${response.body}');
 
       if(response.statusCode == 200){
         return NewsModel.fromJson(jsonDecode(response.body));
@@ -22,7 +22,7 @@ class NewsApi{
         throw Exception("Failure occurred");
       }
     } catch (error){
-      print("Error : $error");
+      //print("Error : $error");
       throw Exception(error.toString());
     }
 

@@ -24,7 +24,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   NewsModel? newsModel;
-  bool isLoading = false;
+  bool isLoading = true;
   int currentIndex = 0;
   String? errorMessage;
   List<Article> articles = [];
@@ -60,7 +60,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    isLoading = true;
+    /// Giving time for the APi to fetch data
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
     getNewsData("");
     // TODO: implement initState
     super.initState();

@@ -8,19 +8,19 @@ final String url = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiK
 
 Future<NewsModel> getSliderData(String data) async{
   String api = "$url&q$data";
-  print("Slider : $api");
+  //print("Slider : $api");
 
   try{
     final response = await http.get(Uri.parse(api));
-    print('status : ${response.statusCode}');
-    print('body : ${response.body}');
+    //print('status : ${response.statusCode}');
+    //print('body : ${response.body}');
     if(response.statusCode == 200){
       return NewsModel.fromJson(jsonDecode(response.body));
     }else{
       throw Exception("Failure occurred");
     }
   }catch (error){
-    print(error);
+    //print(error);
     throw Exception(error.toString());
   }
 }
